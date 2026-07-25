@@ -1,0 +1,32 @@
+{
+  "name": "aegis-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Aegis — AI-powered DPIA & Privacy Decision Engine (UK GDPR Article 35 automation)",
+  "license": "Apache-2.0",
+  "author": "Abosede-o-Makinde <Abomaabidemi27@gmail.com>",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "build": "pnpm -r --filter './packages/**' --filter './apps/**' run build",
+    "dev": "pnpm -r --parallel run dev",
+    "lint": "pnpm -r run lint",
+    "test": "pnpm -r run test",
+    "typecheck": "pnpm -r run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
+    "db:migrate": "pnpm --filter @aegis/api run db:migrate",
+    "db:seed": "pnpm --filter @aegis/api run db:seed",
+    "compose:up": "docker compose -f infra/compose/docker-compose.yml up -d",
+    "compose:down": "docker compose -f infra/compose/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.18.1"
+  }
+}

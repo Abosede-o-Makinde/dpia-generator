@@ -1,0 +1,8 @@
+# Generated — never hand-format or reformat via prettier.
+pnpm-lock.yaml
+
+# Helm templates contain Go template syntax ({{ ... }}) that isn't valid
+# YAML on its own — Prettier's YAML parser cannot parse them. Chart.yaml
+# and values.yaml (plain YAML, no templating) are intentionally still
+# formatted.
+infra/helm/**/templates/**

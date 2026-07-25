@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Builds
+dist/
+build/
+.next/
+out/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!**/fixtures/**/*.key
+
+# Prisma
+apps/api/prisma/*.db
+
+# IDE / OS
+.DS_Store
+.idea/
+*.iml
+.vscode/
+
+# Local-only tooling (do not publish)
+scripts/
+
+# Logs
+*.log
+logs/
+
+# Test artifacts
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+playwright-report/
+test-results/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+
+# Uploads (local dev)
+storage/uploads/
