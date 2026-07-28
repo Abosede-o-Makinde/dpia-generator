@@ -6,8 +6,9 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+.Python
 
-# Builds
+# Builds / caches
 dist/
 build/
 .next/
@@ -15,35 +16,52 @@ out/
 coverage/
 .turbo/
 *.tsbuildinfo
+*.egg-info/
 
-# Environment & secrets
+# Environment & secrets — never commit real credentials
 .env
 .env.*
 !.env.example
+!.env*.example
 *.pem
 *.key
 !**/fixtures/**/*.key
+secrets/
+**/credentials.json
+**/service-account*.json
 
-# Prisma
+# Prisma local DBs
 apps/api/prisma/*.db
+apps/api/prisma/*.db-journal
 
 # IDE / OS
 .DS_Store
+Thumbs.db
+Desktop.ini
 .idea/
 *.iml
 .vscode/
+.cursor/
+*.swp
+*~
 
-# Local-only tooling (do not publish)
-scripts/
+# Local-only tooling at repo root (do not publish) — not apps/*/scripts
+/scripts/
 
-# Logs
+# Logs & debug
 *.log
 logs/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Test artifacts
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 htmlcov/
+.coverage
 playwright-report/
 test-results/
 
@@ -53,6 +71,19 @@ test-results/
 *.tfstate.*
 *.tfvars
 !*.tfvars.example
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
 
-# Uploads (local dev)
+# Uploads & local storage (dev / ephemeral)
+storage/
 storage/uploads/
+apps/api/storage/
+
+# Misc local
+*.local
+.tmp/
+tmp/
+.cache/
