@@ -3,7 +3,7 @@
  * With SEED_DEMO=true also creates a demo organisation, users and a sample
  * DPIA (safe for local/dev only — refuses to run in production).
  *
- *   pnpm --filter @aegis/api run db:seed
+ *   pnpm --filter @shieldwise/api run db:seed
  */
 import { PrismaClient } from '@prisma/client';
 import * as argon2 from 'argon2';
@@ -80,7 +80,7 @@ async function seedDemo(templateId: string): Promise<void> {
     console.warn('SEED_DEMO ignored in production');
     return;
   }
-  const password = await argon2.hash('Demo-Passw0rd-Aegis!', { type: argon2.argon2id });
+  const password = await argon2.hash('Demo-Passw0rd-Shieldwise!', { type: argon2.argon2id });
 
   const org = await prisma.organisation.upsert({
     where: { slug: 'demo-health-trust' },
@@ -93,13 +93,13 @@ async function seedDemo(templateId: string): Promise<void> {
   });
 
   const users = [
-    { email: 'dpo@demo.aegis.local', displayName: 'Dana Officer', role: 'DPO' as const },
+    { email: 'dpo@demo.shieldwise.local', displayName: 'Dana Officer', role: 'DPO' as const },
     {
-      email: 'engineer@demo.aegis.local',
+      email: 'engineer@demo.shieldwise.local',
       displayName: 'Priya Engineer',
       role: 'PRIVACY_ENGINEER' as const,
     },
-    { email: 'admin@demo.aegis.local', displayName: 'Alex Admin', role: 'OWNER' as const },
+    { email: 'admin@demo.shieldwise.local', displayName: 'Alex Admin', role: 'OWNER' as const },
   ];
   const created: Record<string, string> = {};
   for (const u of users) {
@@ -128,7 +128,7 @@ async function seedDemo(templateId: string): Promise<void> {
         title: 'AI-assisted patient triage chatbot',
         description:
           'Symptom-checking chatbot that triages patients to the right service using an LLM.',
-        ownerId: created['engineer@demo.aegis.local']!,
+        ownerId: created['engineer@demo.shieldwise.local']!,
         completeness: 74,
         answers: {
           processing_name: 'Patient triage chatbot',
@@ -163,7 +163,7 @@ async function seedDemo(templateId: string): Promise<void> {
         } as object,
       },
     });
-    console.log('✓ demo organisation, users (password: Demo-Passw0rd-Aegis!) and sample DPIA');
+    console.log('✓ demo organisation, users (password: Demo-Passw0rd-Shieldwise!) and sample DPIA');
   }
 }
 

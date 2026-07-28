@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Aegis Privacy Platform — relational model
+// Shieldwise Privacy Platform — relational model
 //
 // Multi-tenancy: Organisation is the tenant root. Every tenant-scoped model
 // carries organisationId; the Prisma client extension in src/prisma enforces
@@ -339,7 +339,7 @@ model QuestionnaireTemplate {
   key       String
   version   Int
   name      String
-  /// Full template document (sections/questions/conditions) — see @aegis/shared.
+  /// Full template document (sections/questions/conditions) — see @shieldwise/shared.
   document  Json
   isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
@@ -508,7 +508,7 @@ model Control {
 model ControlMapping {
   id        String @id @default(uuid())
   controlId String
-  framework String // FrameworkId from @aegis/shared
+  framework String // FrameworkId from @shieldwise/shared
   reference String // e.g. "A.8.24", "Art. 32(1)(a)", "PR.DS-1"
   title     String
 

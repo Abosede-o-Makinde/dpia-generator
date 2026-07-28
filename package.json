@@ -1,8 +1,8 @@
 {
-  "name": "aegis-platform",
+  "name": "shieldwise-platform",
   "version": "0.1.0",
   "private": true,
-  "description": "Aegis — AI-powered DPIA & Privacy Decision Engine (UK GDPR Article 35 automation)",
+  "description": "Shieldwise — AI-powered DPIA & Privacy Decision Engine (UK GDPR Article 35 automation)",
   "license": "Apache-2.0",
   "author": "Abosede-o-Makinde <Abomaabidemi27@gmail.com>",
   "engines": {
@@ -18,8 +18,8 @@
     "typecheck": "pnpm -r run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,yml,yaml}\"",
-    "db:migrate": "pnpm --filter @aegis/api run db:migrate",
-    "db:seed": "pnpm --filter @aegis/api run db:seed",
+    "db:migrate": "pnpm --filter @shieldwise/api run db:migrate",
+    "db:seed": "pnpm --filter @shieldwise/api run db:seed",
     "compose:up": "docker compose -f infra/compose/docker-compose.yml up -d",
     "compose:down": "docker compose -f infra/compose/docker-compose.yml down"
   },

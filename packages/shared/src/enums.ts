@@ -1,5 +1,5 @@
 /**
- * Core domain enums shared across the Aegis platform.
+ * Core domain enums shared across the Shieldwise platform.
  * These mirror the Prisma enums — keep in sync (enforced by api unit test).
  */
 

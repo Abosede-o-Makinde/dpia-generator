@@ -11,17 +11,17 @@
 -- otherwise RLS is bypassed).
 DO $$
 BEGIN
-  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'aegis_app') THEN
-    CREATE ROLE aegis_app LOGIN PASSWORD 'override-me';
+  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'shieldwise_app') THEN
+    CREATE ROLE shieldwise_app LOGIN PASSWORD 'override-me';
   END IF;
 END $$;
 
-GRANT USAGE ON SCHEMA public TO aegis_app;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO aegis_app;
+GRANT USAGE ON SCHEMA public TO shieldwise_app;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO shieldwise_app;
 
 -- Audit log is append-only for the app role.
-REVOKE UPDATE, DELETE ON audit_logs FROM aegis_app;
-REVOKE UPDATE, DELETE ON workflow_events FROM aegis_app;
+REVOKE UPDATE, DELETE ON audit_logs FROM shieldwise_app;
+REVOKE UPDATE, DELETE ON workflow_events FROM shieldwise_app;
 
 -- Tenant-scoped tables carrying organisation_id ("organisationId" column).
 DO $$
