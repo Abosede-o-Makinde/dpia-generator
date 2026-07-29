@@ -1,0 +1,47 @@
+[project]
+name = "shieldwise-ai"
+version = "0.1.0"
+description = "Shieldwise AI service — privacy classification, DPIA assistant, RAG over UK GDPR/ICO guidance"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "fastapi>=0.115.6",
+  "uvicorn[standard]>=0.34.0",
+  "pydantic>=2.10.4",
+  "pydantic-settings>=2.7.0",
+  "anthropic>=0.42.0",
+  "openai>=1.58.1",
+  "httpx>=0.28.1",
+  "rank-bm25>=0.2.2",
+  "tenacity>=9.0.0",
+  "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.4",
+  "pytest-asyncio>=0.25.0",
+  "httpx>=0.28.1",
+  "ruff>=0.8.4",
+  "mypy>=1.14.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# B008: FastAPI's dependency injection requires Depends(...) as an argument
+# default (`provider: LLMProvider = Depends(get_provider)`) — this is the
+# framework's documented pattern, not the mutable-default-argument bug B008
+# otherwise guards against.
+ignore = ["B008"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true

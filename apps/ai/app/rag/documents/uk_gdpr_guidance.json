@@ -1,0 +1,92 @@
+[
+  {
+    "id": "art9-special-category",
+    "source": "UK GDPR Art. 9",
+    "title": "Processing of special categories of personal data",
+    "text": "Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health, or data concerning a natural person's sex life or sexual orientation is prohibited unless a specific Article 9(2) condition applies (e.g. explicit consent, employment/social security law, vital interests, legitimate activities of a not-for-profit body, data manifestly made public, legal claims, substantial public interest, health/social care, public health, or archiving/research/statistics)."
+  },
+  {
+    "id": "art10-criminal-data",
+    "source": "UK GDPR Art. 10 / DPA 2018 s.10",
+    "title": "Processing of personal data relating to criminal convictions and offences",
+    "text": "Processing of personal data relating to criminal convictions and offences may only be carried out under the control of official authority, or when authorised by domestic law providing appropriate safeguards. In the UK, DPA 2018 Schedule 1 sets out the conditions that permit this processing outside official authority."
+  },
+  {
+    "id": "art22-automated-decisions",
+    "source": "UK GDPR Art. 22",
+    "title": "Automated individual decision-making, including profiling",
+    "text": "A data subject has the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning them or similarly significantly affects them, unless the decision is necessary for a contract, authorised by law with safeguards, or based on explicit consent. Where permitted, the controller must implement suitable measures including the right to obtain human intervention, to express their point of view and to contest the decision."
+  },
+  {
+    "id": "art35-dpia-requirement",
+    "source": "UK GDPR Art. 35",
+    "title": "Data protection impact assessment",
+    "text": "Where a type of processing, in particular using new technologies, is likely to result in a high risk to the rights and freedoms of natural persons, the controller must carry out a DPIA prior to the processing. A DPIA is required in particular for: (a) systematic and extensive evaluation of personal aspects based on automated processing, including profiling, which produces legal or similarly significant effects; (b) large-scale processing of special categories of data under Article 9(1) or of personal data relating to criminal convictions under Article 10; or (c) systematic monitoring of a publicly accessible area on a large scale."
+  },
+  {
+    "id": "ico-dpia-screening-checklist",
+    "source": "ICO DPIA guidance",
+    "title": "When is a DPIA legally required (ICO screening checklist)",
+    "text": "The ICO's screening checklist for mandatory DPIAs includes processing that involves: innovative technology; denial of service; large-scale profiling; biometric data; genetic data; data matching; invisible processing (data not obtained directly from the subject); tracking of individuals; targeting of children or other vulnerable people; and risk of physical harm. If a processing activity meets two or more of these criteria, a DPIA is generally required; a single criterion may still trigger a DPIA depending on context."
+  },
+  {
+    "id": "edpb-wp248-large-scale",
+    "source": "EDPB WP248 rev.01",
+    "title": "Factors for assessing 'large scale' processing",
+    "text": "When deciding whether processing is 'large scale', consider: the number of data subjects concerned (as an absolute number or a proportion of the population); the volume of data and/or range of different data items being processed; the duration or permanence of the processing activity; and the geographical extent of the processing activity. Large-scale processing of special category or criminal offence data is a mandatory DPIA trigger under Art. 35(3)(b)."
+  },
+  {
+    "id": "art28-processors",
+    "source": "UK GDPR Art. 28",
+    "title": "Processor obligations and contracts",
+    "text": "Where processing is carried out by a processor on behalf of a controller, it must be governed by a contract or other legal act binding the processor, setting out the subject matter, duration, nature and purpose of processing, the type of personal data, categories of data subjects, and the obligations and rights of the controller. The contract must require the processor to only act on documented instructions, ensure confidentiality, implement Art. 32 security measures, assist with data subject rights, assist with breach notification and DPIAs, delete or return data at the end of provision of services, and allow for audits."
+  },
+  {
+    "id": "art44-49-transfers",
+    "source": "UK GDPR Art. 44-49",
+    "title": "General principle and mechanisms for international transfers",
+    "text": "Any transfer of personal data outside the UK must ensure the level of protection guaranteed by UK GDPR is not undermined. Transfers can proceed on the basis of an adequacy decision, or in the absence of adequacy, on appropriate safeguards such as the International Data Transfer Agreement (IDTA), the EU Standard Contractual Clauses with the UK Addendum, or Binding Corporate Rules. In the absence of adequacy or safeguards, a transfer may only proceed under a limited Article 49 derogation."
+  },
+  {
+    "id": "ico-tra-guidance",
+    "source": "ICO international transfers guidance",
+    "title": "Transfer risk assessment",
+    "text": "Before relying on the IDTA or the SCC Addendum for a restricted transfer, the exporter should carry out a transfer risk assessment (TRA) to consider whether the transfer mechanism will be effective in the context of the destination country, including its surveillance and access-to-data laws, and whether supplementary measures are needed."
+  },
+  {
+    "id": "art32-security",
+    "source": "UK GDPR Art. 32",
+    "title": "Security of processing",
+    "text": "The controller and processor must implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including, as appropriate: pseudonymisation and encryption of personal data; the ability to ensure ongoing confidentiality, integrity, availability and resilience of processing systems; the ability to restore availability and access to data in a timely manner following an incident; and a process for regularly testing, assessing and evaluating the effectiveness of measures."
+  },
+  {
+    "id": "art5-principles",
+    "source": "UK GDPR Art. 5",
+    "title": "Principles relating to processing of personal data",
+    "text": "Personal data must be: processed lawfully, fairly and transparently; collected for specified, explicit and legitimate purposes and not further processed incompatibly; adequate, relevant and limited to what is necessary (data minimisation); accurate and kept up to date; kept no longer than necessary for the purposes (storage limitation); and processed in a manner ensuring appropriate security. The controller is responsible for, and must be able to demonstrate compliance with, these principles (accountability)."
+  },
+  {
+    "id": "childrens-code",
+    "source": "ICO Age Appropriate Design Code (Children's Code)",
+    "title": "Standards for online services likely to be accessed by children",
+    "text": "Online services likely to be accessed by children must apply the best interests of the child as a primary consideration, undertake a data protection impact assessment, apply data minimisation and high privacy by default, use age-appropriate application of the UK GDPR standards, provide transparency suited to the age of the child, and avoid using nudge techniques, profiling, or geolocation by default in ways that work against a child's best interests."
+  },
+  {
+    "id": "ico-ai-guidance",
+    "source": "ICO guidance on AI and data protection",
+    "title": "Fairness, transparency and accountability in AI systems",
+    "text": "Organisations using AI to process personal data must ensure statistical accuracy of AI outputs, monitor for bias and discriminatory effects across protected characteristics, provide meaningful information about the logic involved in automated decisions, and maintain human oversight proportionate to the risk of the decision. A DPIA is strongly recommended for any novel AI processing of personal data, particularly where profiling or automated decision-making is involved."
+  },
+  {
+    "id": "ico-biometric-guidance",
+    "source": "ICO biometric data guidance",
+    "title": "Biometric recognition systems",
+    "text": "Biometric data used to uniquely identify a person (e.g. facial recognition, fingerprint matching) is special category data under Article 9. Because biometric identifiers are largely immutable, a compromise has more severe and lasting consequences than other data types. Controllers deploying biometric recognition should conduct a DPIA, apply strong technical safeguards including encryption and access control, and ensure a valid Article 9(2) condition is documented before deployment."
+  },
+  {
+    "id": "pecr-cookies",
+    "source": "PECR Regulation 6",
+    "title": "Consent for storage of, and access to, information (cookies)",
+    "text": "Storing or accessing information on a user's device (e.g. cookies, tracking pixels, device fingerprinting) requires clear and comprehensive information and valid consent, except where strictly necessary for the service requested. Consent must be freely given, specific, informed, and indicated by a clear affirmative action — pre-ticked boxes or inferred consent from continued browsing are not valid."
+  }
+]
