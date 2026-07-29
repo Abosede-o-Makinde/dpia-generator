@@ -11,8 +11,6 @@ const envSchema = z.object({
   API_URL: z.string().url().default('http://localhost:4000'),
 
   DATABASE_URL: z.string().min(1),
-  REDIS_URL: z.string().optional(),
-  RABBITMQ_URL: z.string().optional(),
 
   JWT_ACCESS_SECRET: z.string().min(16),
   JWT_REFRESH_SECRET: z.string().min(16),
@@ -25,13 +23,14 @@ const envSchema = z.object({
     .default('true')
     .transform((v) => v === 'true'),
 
-  OIDC_ISSUER_URL: z.string().optional(),
-  OIDC_CLIENT_ID: z.string().optional(),
-  OIDC_CLIENT_SECRET: z.string().optional(),
-
   WEBAUTHN_RP_ID: z.string().default('localhost'),
   WEBAUTHN_RP_NAME: z.string().default('Shieldwise Privacy Platform'),
   WEBAUTHN_ORIGIN: z.string().default('http://localhost:3000'),
+
+  // Optional SSO — leave unset unless configuring an IdP
+  OIDC_ISSUER_URL: z.string().optional(),
+  OIDC_CLIENT_ID: z.string().optional(),
+  OIDC_CLIENT_SECRET: z.string().optional(),
 
   S3_ENDPOINT: z.string().optional(),
   S3_REGION: z.string().default('eu-west-2'),
@@ -56,7 +55,6 @@ const envSchema = z.object({
   AI_SERVICE_TOKEN: z.string().default(''),
 
   LOG_LEVEL: z.string().default('info'),
-  OTEL_EXPORTER_OTLP_ENDPOINT: z.string().optional(),
 });
 
 export type AppConfig = z.infer<typeof envSchema>;
