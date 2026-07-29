@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Shieldwise — pecuk-inspired surfaces + type rhythm; navy primary for privacy product */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 4%;
+  --muted: 220 14% 97%;
+  --muted-foreground: 215 14% 34%;
+  --primary: 222 78% 38%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 230 100% 97%;
+  --secondary-foreground: 230 45% 20%;
+  --border: 220 16% 92%;
+  --destructive: 4 74% 49%;
+  --destructive-foreground: 0 0% 100%;
+  --surface: 220 14% 97%;
+  --ink: 0 0% 4%;
+  --section-wash: 230 100% 97%;
+  --radius: 0.875rem;
+}
+
+.dark {
+  --background: 222 47% 8%;
+  --foreground: 210 40% 96%;
+  --card: 222 40% 11%;
+  --card-foreground: 210 40% 96%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 96%;
+  --border: 217 33% 20%;
+  --destructive: 0 63% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --surface: 217 33% 14%;
+  --ink: 210 40% 96%;
+  --section-wash: 222 40% 14%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-bricolage), var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .portal-stat {
+    @apply rounded-2xl border border-border bg-white p-5 sm:p-6;
+  }
+
+  .portal-card {
+    @apply rounded-2xl border border-border bg-white shadow-[0_8px_40px_-12px_rgba(15,23,42,0.08)];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

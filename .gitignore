@@ -34,6 +34,10 @@ secrets/
 apps/api/prisma/*.db
 apps/api/prisma/*.db-journal
 
+# Hosting / deploy link metadata (local only)
+.vercel/
+**/.vercel/
+
 # IDE / OS
 .DS_Store
 Thumbs.db
@@ -81,9 +85,11 @@ override.tf.json
 storage/
 storage/uploads/
 apps/api/storage/
+apps/ai/**/.cache/
 
 # Misc local
 *.local
 .tmp/
 tmp/
 .cache/
+.direnv/
