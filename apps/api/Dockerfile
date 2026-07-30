@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Multi-stage build for the Shieldwise API (NestJS).
 
-FROM node:22-alpine AS base
+FROM node:26-alpine AS base
 RUN corepack enable
 WORKDIR /repo
 
