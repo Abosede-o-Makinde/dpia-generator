@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -63,6 +64,9 @@ export class EvidenceController {
     @CurrentOrg() org: OrgContext,
     @Query(new ZodPipe(listQuerySchema)) q: z.infer<typeof listQuerySchema>,
   ) {
+    if (!org?.orgId) {
+      throw new BadRequestException('Organisation context is required');
+    }
     return this.evidence.list(org.orgId, q.type as EvidenceType | undefined);
   }
 

@@ -70,13 +70,29 @@ export class EvidenceService {
   }
 
   list(orgId: string, type?: EvidenceType) {
-    return this.prisma.client.evidence.findMany({
+    // Use system client with an explicit org filter (same pattern as analytics).
+    // Nested DPIA links are org-scoped via the evidence row itself.
+    return this.prisma.system.evidence.findMany({
       where: { organisationId: orgId, deletedAt: null, ...(type ? { type } : {}) },
       orderBy: { createdAt: 'desc' },
       include: {
-        dpiaLinks: { include: { dpia: { select: { id: true, reference: true, title: true } } } },
+        dpiaLinks: {
+          include: {
+            dpia: { select: { id: true, reference: true, title: true, organisationId: true } },
+          },
+        },
       },
-    });
+    }).then((rows) =>
+      rows.map(({ dpiaLinks, ...rest }) => ({
+        ...rest,
+        dpiaLinks: dpiaLinks
+          .filter((l) => l.dpia.organisationId === orgId)
+          .map(({ dpia, ...link }) => ({
+            ...link,
+            dpia: { id: dpia.id, reference: dpia.reference, title: dpia.title },
+          })),
+      })),
+    );
   }
 
   async download(orgId: string, id: string) {
