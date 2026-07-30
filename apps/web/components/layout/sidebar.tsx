@@ -8,7 +8,6 @@ import {
   AlertTriangle,
   ShieldCheck,
   Paperclip,
-  Cloud,
   BarChart3,
   Settings,
   ShieldQuestion,
@@ -21,7 +20,6 @@ const NAV = [
   { href: '/risks', label: 'Risk register', icon: AlertTriangle },
   { href: '/controls', label: 'Controls', icon: ShieldCheck },
   { href: '/evidence', label: 'Evidence', icon: Paperclip },
-  { href: '/connectors', label: 'Cloud scanners', icon: Cloud },
   { href: '/reports', label: 'Reports', icon: BarChart3 },
   { href: '/settings/organisation', label: 'Settings', icon: Settings },
 ] as const;

@@ -1,0 +1,33 @@
+name: Feature request
+description: Suggest an enhancement to the Shieldwise platform
+labels: ['enhancement', 'triage']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case or gap this addresses.
+    validations: { required: true }
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations: { required: true }
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations: { required: false }
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - apps/api
+        - apps/web
+        - apps/ai
+        - Risk engine / control library
+        - DPIA questionnaire template
+        - infra
+        - Other
+    validations: { required: true }

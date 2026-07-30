@@ -1,0 +1,184 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '22'
+  PNPM_VERSION: '9'
+
+jobs:
+  lint-node:
+    name: Lint & typecheck (Node)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: '${{ env.PNPM_VERSION }}' }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '${{ env.NODE_VERSION }}'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run format:check
+      - run: pnpm run lint
+      - run: pnpm --filter @shieldwise/shared run build
+      - run: pnpm run typecheck
+
+  test-shared:
+    name: Test — packages/shared
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: '${{ env.PNPM_VERSION }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @shieldwise/shared run test
+
+  test-api:
+    name: Test — apps/api
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: shieldwise
+          POSTGRES_PASSWORD: shieldwise_test
+          POSTGRES_DB: shieldwise_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U shieldwise"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://shieldwise:shieldwise_test@localhost:5432/shieldwise_test?schema=public
+      JWT_ACCESS_SECRET: test-access-secret-not-for-prod-use
+      JWT_REFRESH_SECRET: test-refresh-secret-not-for-prod-use
+      MFA_ENCRYPTION_KEY: test-mfa-key-32-bytes-long-value
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: '${{ env.PNPM_VERSION }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @shieldwise/shared run build
+      - run: pnpm --filter @shieldwise/api run db:generate
+      - run: pnpm --filter @shieldwise/api exec prisma migrate deploy
+      - run: pnpm --filter @shieldwise/api run test
+
+  test-web:
+    name: Test & build — apps/web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: '${{ env.PNPM_VERSION }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @shieldwise/shared run build
+      - run: pnpm --filter @shieldwise/web run test
+      - run: pnpm --filter @shieldwise/web run build
+
+  test-ai:
+    name: Test — apps/ai
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: apps/ai/pyproject.toml }
+      - run: pip install -e ".[dev]"
+        working-directory: apps/ai
+      - run: ruff check .
+        working-directory: apps/ai
+      - run: pytest
+        working-directory: apps/ai
+
+  secret-scan:
+    name: Secret scanning (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependency-scan:
+    name: Dependency scanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: '${{ env.PNPM_VERSION }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm audit --audit-level=high
+        continue-on-error: true
+      - uses: pypa/gh-action-pip-audit@v1.1.0
+        with:
+          inputs: apps/ai/pyproject.toml
+
+  sast:
+    name: SAST (CodeQL)
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    strategy:
+      matrix:
+        language: [javascript-typescript, python]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+      - uses: github/codeql-action/analyze@v3
+
+  iac-scan:
+    name: IaC scanning (checkov)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: infra
+          quiet: true
+          soft_fail: true
+
+  ci-summary:
+    name: CI summary
+    if: always()
+    needs:
+      [
+        lint-node,
+        test-shared,
+        test-api,
+        test-web,
+        test-ai,
+        secret-scan,
+        dependency-scan,
+        sast,
+        iac-scan,
+      ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check all jobs succeeded
+        run: |
+          if [[ "${{ contains(needs.*.result, 'failure') }}" == "true" ]]; then
+            echo "One or more required jobs failed"
+            exit 1
+          fi

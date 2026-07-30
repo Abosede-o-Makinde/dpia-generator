@@ -15,18 +15,18 @@ export function RiskHeatmap({ data }: { data: number[][] }) {
   }
 
   return (
-    <Card>
+    <Card className="flex h-full flex-col">
       <CardHeader>
         <CardTitle>Risk heat map</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="flex gap-4">
+      <CardContent className="flex flex-1 items-center justify-center">
+        <div className="flex w-full max-w-[300px] gap-3">
           <div className="flex flex-col justify-between py-1 text-xs text-muted-foreground">
             {[5, 4, 3, 2, 1].map((n) => (
               <span key={n}>{n}</span>
             ))}
           </div>
-          <div className="flex-1">
+          <div className="min-w-0 flex-1">
             <div className="grid grid-cols-5 gap-1">
               {[4, 3, 2, 1, 0].map((likelihoodIdx) =>
                 [0, 1, 2, 3, 4].map((impactIdx) => {
@@ -54,7 +54,7 @@ export function RiskHeatmap({ data }: { data: number[][] }) {
             </div>
           </div>
         </div>
-        <p className="mt-1 text-center text-xs text-muted-foreground">↑ Likelihood</p>
+        <span className="sr-only">Likelihood increases from bottom to top.</span>
       </CardContent>
     </Card>
   );

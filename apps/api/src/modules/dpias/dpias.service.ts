@@ -7,6 +7,7 @@ import {
 import { Prisma } from '@prisma/client';
 import {
   allowedTransitions,
+  assessPriorConsultation,
   buildFactMap,
   canTransition,
   EDITABLE_STATUSES,
@@ -125,6 +126,13 @@ export class DpiasService {
     const template = this.parseTemplate(dpia.template.document);
     const answers = (dpia.answers ?? {}) as Record<string, unknown>;
     const visibility = resolveVisibility(template, answers);
+    const priorConsultation = assessPriorConsultation(
+      dpia.risks.map((risk) => ({
+        residualLevel: risk.residualLevel,
+        status: risk.status,
+        title: risk.title,
+      })),
+    );
 
     return {
       ...dpia,
@@ -133,6 +141,7 @@ export class DpiasService {
       answers,
       availableTransitions: allowedTransitions(dpia.status as DpiaStatus, roles),
       editable: EDITABLE_STATUSES.includes(dpia.status as DpiaStatus),
+      priorConsultation,
     };
   }
 

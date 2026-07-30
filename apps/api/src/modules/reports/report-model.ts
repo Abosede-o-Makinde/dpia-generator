@@ -32,6 +32,14 @@ export interface ReportModel {
   approvals: Array<{ stage: string; decision: string; comment?: string; decidedAt: string }>;
   workflowHistory: Array<{ from: string; to: string; comment?: string; at: string }>;
   dataFlowFindings: Array<{ severity: string; message: string }>;
+  priorConsultation: {
+    required: boolean;
+    reason: string;
+    highOrCriticalCount: number;
+    criticalCount: number;
+    triggeringRisks: string[];
+    references: string[];
+  };
 }
 
 export function formatAnswer(value: unknown): string {

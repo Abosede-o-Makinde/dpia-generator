@@ -54,6 +54,23 @@ export function renderPdf(model: ReportModel, template: ReportTemplateKey): Prom
       doc.moveDown(1).fontSize(11).fillColor('#1a202c').text(model.description);
     }
 
+    doc.moveDown(1);
+    doc.fontSize(15).fillColor('#1a365d').text('Article 36 prior consultation');
+    doc.moveDown(0.3);
+    doc
+      .fontSize(11)
+      .fillColor(model.priorConsultation.required ? '#c53030' : '#2f855a')
+      .text(
+        model.priorConsultation.required
+          ? 'REQUIRED — consult the ICO before starting processing'
+          : 'Not indicated on residual-risk grounds alone',
+      );
+    doc
+      .moveDown(0.3)
+      .fontSize(10)
+      .fillColor('#1a202c')
+      .text(model.priorConsultation.reason);
+
     if (inc.questionnaire) {
       for (const section of model.sections) {
         doc.addPage();
@@ -147,6 +164,21 @@ export async function renderDocx(model: ReportModel, template: ReportTemplateKey
     }),
   ];
   if (model.description) children.push(new Paragraph({ text: model.description }));
+
+  children.push(
+    new Paragraph({ text: 'Article 36 prior consultation', heading: HeadingLevel.HEADING_2 }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: model.priorConsultation.required
+            ? 'REQUIRED — consult the ICO before starting processing'
+            : 'Not indicated on residual-risk grounds alone',
+          bold: true,
+        }),
+      ],
+    }),
+    new Paragraph({ text: model.priorConsultation.reason }),
+  );
 
   if (inc.questionnaire) {
     for (const section of model.sections) {

@@ -12,7 +12,6 @@ import { AiModule } from './modules/ai/ai.module';
 import { AnalyticsModule } from './modules/analytics/analytics.module';
 import { AuditQueryModule } from './modules/audit/audit-query.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { ConnectorsModule } from './modules/connectors/connectors.module';
 import { ControlsModule } from './modules/controls/controls.module';
 import { DpiasModule } from './modules/dpias/dpias.module';
 import { EvidenceModule } from './modules/evidence/evidence.module';
@@ -35,7 +34,6 @@ import { UsersModule } from './modules/users/users.module';
     ControlsModule,
     EvidenceModule,
     AiModule,
-    ConnectorsModule,
     AnalyticsModule,
     ReportsModule,
     AuditQueryModule,

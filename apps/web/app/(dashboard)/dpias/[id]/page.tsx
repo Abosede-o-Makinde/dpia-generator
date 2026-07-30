@@ -41,6 +41,22 @@ export default function DpiaDetailPage({ params }: { params: Promise<{ id: strin
 
       <WorkflowActions dpia={dpia} />
 
+      {dpia.priorConsultation && (
+        <div
+          className={`rounded-2xl border px-4 py-3 text-sm ${
+            dpia.priorConsultation.required
+              ? 'border-risk-high/30 bg-[#fff7ed] text-[#9a3412]'
+              : 'border-border bg-surface text-muted-foreground'
+          }`}
+        >
+          <p className="font-medium text-ink">
+            Article 36 prior consultation:{' '}
+            {dpia.priorConsultation.required ? 'Required' : 'Not indicated'}
+          </p>
+          <p className="mt-1 leading-relaxed">{dpia.priorConsultation.reason}</p>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1fr_360px]">
         <Tabs defaultValue="questionnaire">
           <TabsList>

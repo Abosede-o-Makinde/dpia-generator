@@ -42,6 +42,14 @@ export interface DpiaDetail {
   };
   availableTransitions: Array<{ to: string; action: string; requiresComment?: boolean }>;
   editable: boolean;
+  priorConsultation?: {
+    required: boolean;
+    reason: string;
+    highOrCriticalCount: number;
+    criticalCount: number;
+    triggeringRisks: string[];
+    references: string[];
+  };
   risks: Array<Record<string, unknown>>;
   workflowEvents: Array<{
     fromStatus: string;

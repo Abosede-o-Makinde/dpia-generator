@@ -18,6 +18,17 @@ export function renderMarkdown(model: ReportModel, template: ReportTemplateKey):
   ];
   if (model.description) lines.push(model.description, '');
 
+  lines.push(
+    '## Article 36 prior consultation',
+    '',
+    model.priorConsultation.required
+      ? '**REQUIRED** — consult the ICO before starting processing.'
+      : '**Not indicated** on residual-risk grounds alone.',
+    '',
+    model.priorConsultation.reason,
+    '',
+  );
+
   if (inc.questionnaire) {
     for (const section of model.sections) {
       lines.push(`## ${section.title}`, '');

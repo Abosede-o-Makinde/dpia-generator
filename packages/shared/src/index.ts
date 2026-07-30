@@ -4,4 +4,5 @@ export * from './questionnaire.js';
 export * from './workflow.js';
 export * from './risk.js';
 export * from './classification.js';
+export * from './consultation.js';
 export * from './api.js';

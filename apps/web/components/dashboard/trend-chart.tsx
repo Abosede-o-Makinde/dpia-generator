@@ -17,11 +17,11 @@ export function TrendChart({
   data: Array<{ month: string; total: number; highOrCritical: number }>;
 }) {
   return (
-    <Card>
+    <Card className="flex h-full flex-col">
       <CardHeader>
         <CardTitle>Risk trend (6 months)</CardTitle>
       </CardHeader>
-      <CardContent className="h-64">
+      <CardContent className="min-h-72 flex-1">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
             <defs>

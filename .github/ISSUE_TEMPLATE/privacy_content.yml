@@ -1,0 +1,21 @@
+name: Privacy content correction
+description: Report an inaccuracy in a risk rule, control mapping, or DPIA question
+labels: ['privacy-content', 'triage']
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Where is the issue?
+      description: File and rule/control/question key (e.g. risk-rules.ts → special-category-processing)
+    validations: { required: true }
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's inaccurate or missing?
+    validations: { required: true }
+  - type: textarea
+    id: source
+    attributes:
+      label: Supporting source
+      description: Citation to the article, ICO/EDPB guidance, or framework control that supports the correction
+    validations: { required: true }

@@ -12,7 +12,6 @@ const PAGE_TITLES: Record<string, string> = {
   '/risks': 'Risk register',
   '/controls': 'Controls',
   '/evidence': 'Evidence repository',
-  '/connectors': 'Cloud scanners',
   '/reports': 'Reports',
   '/settings/organisation': 'Organisation',
   '/settings/members': 'Members',

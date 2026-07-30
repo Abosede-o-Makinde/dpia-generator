@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { questionnaireTemplateSchema } from '@shieldwise/shared';
+import { assessPriorConsultation, questionnaireTemplateSchema } from '@shieldwise/shared';
 import { AuditService } from '../../common/audit/audit.service';
 import { PrismaService } from '../../common/prisma/prisma.service';
 import { renderDocx, renderPdf } from './renderers/binary.renderers';
@@ -163,6 +163,13 @@ export class ReportsService {
         severity: f.severity,
         message: f.message,
       })),
+      priorConsultation: assessPriorConsultation(
+        dpia.risks.map((r) => ({
+          residualLevel: r.residualLevel,
+          status: r.status,
+          title: r.title,
+        })),
+      ),
     };
   }
 }

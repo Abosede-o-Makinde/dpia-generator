@@ -162,19 +162,6 @@ export const AUDIT_ACTIONS = [
 ] as const;
 export type AuditAction = (typeof AUDIT_ACTIONS)[number];
 
-export const CONNECTOR_PROVIDERS = [
-  'AWS',
-  'AZURE',
-  'GCP',
-  'M365',
-  'GITHUB',
-  'GITLAB',
-  'KUBERNETES',
-  'TERRAFORM',
-  'DOCKER',
-] as const;
-export type ConnectorProvider = (typeof CONNECTOR_PROVIDERS)[number];
-
 export const TRANSFER_MECHANISMS = [
   'ADEQUACY',
   'IDTA',
