@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Send, Sparkles } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { apiFetch } from '@/lib/api-client';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/input';
@@ -10,6 +12,32 @@ import { cn } from '@/lib/utils';
 interface Message {
   role: 'user' | 'assistant';
   content: string;
+}
+
+function AssistantMessage({ content }: { content: string }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        p: ({ children }) => <p className="mb-2 leading-relaxed last:mb-0">{children}</p>,
+        ul: ({ children }) => <ul className="my-2 list-disc space-y-1 pl-5">{children}</ul>,
+        ol: ({ children }) => <ol className="my-2 list-decimal space-y-1 pl-5">{children}</ol>,
+        strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+        a: ({ children, href }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2"
+          >
+            {children}
+          </a>
+        ),
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
 }
 
 export function AssistantPanel({ dpiaId }: { dpiaId?: string }) {
@@ -61,11 +89,15 @@ export function AssistantPanel({ dpiaId }: { dpiaId?: string }) {
           <div
             key={i}
             className={cn(
-              'max-w-[85%] rounded-lg px-3 py-2 text-sm',
+              'max-w-[85%] break-words rounded-lg px-3 py-2 text-sm',
               m.role === 'user' ? 'ml-auto bg-primary text-primary-foreground' : 'bg-muted',
             )}
           >
-            {m.content}
+            {m.role === 'assistant' ? (
+              <AssistantMessage content={m.content} />
+            ) : (
+              <span className="whitespace-pre-wrap">{m.content}</span>
+            )}
           </div>
         ))}
         {loading && <div className="text-xs text-muted-foreground">Thinking…</div>}
