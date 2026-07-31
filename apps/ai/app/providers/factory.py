@@ -17,7 +17,12 @@ def get_provider() -> LLMProvider:
     if settings.AI_PROVIDER == "openai":
         if not settings.OPENAI_API_KEY:
             raise RuntimeError("OPENAI_API_KEY is required when AI_PROVIDER=openai")
-        return OpenAIProvider(settings.OPENAI_API_KEY, settings.OPENAI_MODEL)
+        base_url = settings.OPENAI_BASE_URL.strip() or None
+        return OpenAIProvider(
+            settings.OPENAI_API_KEY,
+            settings.OPENAI_MODEL,
+            base_url=base_url,
+        )
     if settings.AI_PROVIDER == "local":
         return LocalProvider(settings.LOCAL_LLM_BASE_URL, settings.LOCAL_LLM_MODEL)
     raise RuntimeError(f"Unknown AI_PROVIDER: {settings.AI_PROVIDER}")

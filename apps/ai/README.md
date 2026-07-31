@@ -27,7 +27,9 @@ backends, selected by `AI_PROVIDER`:
 
 - `anthropic` (default) — Claude Opus 4.8 via the official SDK, adaptive
   thinking at high effort for the legal/regulatory reasoning this service does.
-- `openai` — any OpenAI-compatible chat completions endpoint.
+- `openai` — any OpenAI-compatible chat completions endpoint. Set
+  `OPENAI_BASE_URL` for Gemini
+  (`https://generativelanguage.googleapis.com/v1beta/openai/`) or other proxies.
 - `local` — self-hosted model behind an OpenAI-compatible API (Ollama, vLLM).
 
 ## RAG

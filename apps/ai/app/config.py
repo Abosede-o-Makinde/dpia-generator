@@ -21,6 +21,9 @@ class Settings(BaseSettings):
 
     OPENAI_API_KEY: str = ""
     OPENAI_MODEL: str = "gpt-4o"
+    # Optional OpenAI-compatible base (e.g. Gemini:
+    # https://generativelanguage.googleapis.com/v1beta/openai/)
+    OPENAI_BASE_URL: str = ""
 
     LOCAL_LLM_BASE_URL: str = "http://localhost:11434/v1"
     LOCAL_LLM_MODEL: str = "llama3.1"
