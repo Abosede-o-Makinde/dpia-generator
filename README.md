@@ -17,6 +17,8 @@ risk scoring, control recommendation, multi-framework compliance mapping,
 approval workflow, and regulator-ready reporting — for governments, financial
 institutions, healthcare organisations, and multinational enterprises.
 
+**Live demo:** [https://shieldwise-dpia.vercel.app/](https://shieldwise-dpia.vercel.app/)
+
 **New here? [`HOWTO.md`](HOWTO.md) is a 10-minute read covering what the
 platform aims to achieve and how to drive it end-to-end.**
 
@@ -26,6 +28,8 @@ that scores likelihood × impact × sensitivity against your actual answers and
 data-flow model, and a compliance mapping layer that turns "we did a DPIA"
 into "here is our coverage against ISO 27001, NIST CSF 2.0, and SOC 2, with
 the gaps ranked."
+
+![Shieldwise dashboard](apps/web/public/dashboard.png)
 
 ---
 
@@ -75,18 +79,6 @@ scored, control-mapped programme — not a point-in-time document.
 | **Workflow & audit**                            | Configurable approval workflow (draft → review → legal/security review → DPO/executive approval → monitoring → periodic review) with an immutable, append-only audit trail.                                                                                           |
 | **Reporting**                                   | PDF, DOCX, HTML, Markdown, CSV, and JSON exports, with templates for board reports, ICO-ready submissions, and executive summaries.                                                                                                                                   |
 | **Enterprise auth**                             | Password + TOTP MFA, WebAuthn passkeys, OIDC SSO (Keycloak, Entra ID, Okta, Google), personal API tokens, full audit logging.                                                                                                                                         |
-
-## Screenshots
-
-Product UI screenshots used on the landing page:
-
-| Surface       | Asset                                                                            |
-| ------------- | -------------------------------------------------------------------------------- |
-| Dashboard     | [`apps/web/public/dashboard.png`](apps/web/public/dashboard.png)                 |
-| Questionnaire | [`apps/web/public/dpia-questionaire.png`](apps/web/public/dpia-questionaire.png) |
-| Risks         | [`apps/web/public/dpia-risks.png`](apps/web/public/dpia-risks.png)               |
-| DPIA list     | [`apps/web/public/dpia-list.png`](apps/web/public/dpia-list.png)                 |
-| Data flow     | [`apps/web/public/dpia-dataflow.png`](apps/web/public/dpia-dataflow.png)         |
 
 ## Architecture
 
