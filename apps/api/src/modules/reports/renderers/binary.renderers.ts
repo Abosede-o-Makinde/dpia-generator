@@ -65,11 +65,7 @@ export function renderPdf(model: ReportModel, template: ReportTemplateKey): Prom
           ? 'REQUIRED — consult the ICO before starting processing'
           : 'Not indicated on residual-risk grounds alone',
       );
-    doc
-      .moveDown(0.3)
-      .fontSize(10)
-      .fillColor('#1a202c')
-      .text(model.priorConsultation.reason);
+    doc.moveDown(0.3).fontSize(10).fillColor('#1a202c').text(model.priorConsultation.reason);
 
     if (inc.questionnaire) {
       for (const section of model.sections) {

@@ -19,9 +19,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       <div>
-        <p className="text-xs font-medium uppercase tracking-wider text-primary">
-          DPIA programme
-        </p>
+        <p className="text-xs font-medium uppercase tracking-wider text-primary">DPIA programme</p>
         <p className="mt-1 max-w-xl text-sm text-muted-foreground">
           Track assessments in progress, unresolved high risks, supporting evidence, and upcoming
           reviews.

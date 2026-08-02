@@ -199,14 +199,14 @@ Full detail:
 
 ## Where to go next
 
-| I want to...                                    | Read                                                                                   |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Run it (full detail, troubleshooting)           | [`docs/guides/local-deployment.md`](docs/guides/local-deployment.md)                   |
-| Understand a DPIA lifecycle in more depth       | [`docs/guides/user-guide.md`](docs/guides/user-guide.md)                               |
-| Configure SSO and roles                         | [`docs/guides/administrator-guide.md`](docs/guides/administrator-guide.md)             |
-| Contribute code or extend the risk rules        | [`docs/guides/developer-guide.md`](docs/guides/developer-guide.md)                     |
-| Understand the architecture                     | [`docs/architecture/system-architecture.md`](docs/architecture/system-architecture.md) |
-| See why a technical decision was made           | [`docs/adr/`](docs/adr/)                                                               |
-| Understand the security posture                 | [`docs/security/threat-model.md`](docs/security/threat-model.md)                       |
-| Understand the compliance-mapping methodology   | [`docs/compliance/framework-mapping.md`](docs/compliance/framework-mapping.md)         |
+| I want to...                                   | Read                                                                                   |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Run it (full detail, troubleshooting)          | [`docs/guides/local-deployment.md`](docs/guides/local-deployment.md)                   |
+| Understand a DPIA lifecycle in more depth      | [`docs/guides/user-guide.md`](docs/guides/user-guide.md)                               |
+| Configure SSO and roles                        | [`docs/guides/administrator-guide.md`](docs/guides/administrator-guide.md)             |
+| Contribute code or extend the risk rules       | [`docs/guides/developer-guide.md`](docs/guides/developer-guide.md)                     |
+| Understand the architecture                    | [`docs/architecture/system-architecture.md`](docs/architecture/system-architecture.md) |
+| See why a technical decision was made          | [`docs/adr/`](docs/adr/)                                                               |
+| Understand the security posture                | [`docs/security/threat-model.md`](docs/security/threat-model.md)                       |
+| Understand the compliance-mapping methodology  | [`docs/compliance/framework-mapping.md`](docs/compliance/framework-mapping.md)         |
 | Deploy beyond localhost (Render, Vercel, etc.) | [`docs/architecture/deployment.md`](docs/architecture/deployment.md)                   |

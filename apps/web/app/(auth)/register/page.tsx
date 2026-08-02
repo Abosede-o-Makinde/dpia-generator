@@ -107,16 +107,18 @@ export default function RegisterPage() {
             placeholder="At least 12 characters"
             {...register('password')}
           />
-          {errors.password && (
-            <p className="text-xs text-destructive">{errors.password.message}</p>
-          )}
+          {errors.password && <p className="text-xs text-destructive">{errors.password.message}</p>}
         </div>
 
         {error && (
           <p className="rounded-2xl bg-destructive/5 px-3 py-2 text-sm text-destructive">{error}</p>
         )}
 
-        <Button type="submit" className="mt-1 h-11 w-full text-sm font-semibold" loading={isSubmitting}>
+        <Button
+          type="submit"
+          className="mt-1 h-11 w-full text-sm font-semibold"
+          loading={isSubmitting}
+        >
           Create account
         </Button>
       </form>

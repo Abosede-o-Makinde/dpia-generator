@@ -2,11 +2,11 @@
 
 ## Environment matrix
 
-| Environment       | How                                                     | Use case                         |
-| ----------------- | ------------------------------------------------------- | -------------------------------- |
-| Local development | `pnpm run dev` + Python venv                            | Feature development              |
-| Local integration | `docker compose -f infra/compose/docker-compose.yml up` | Full-stack testing, demos        |
-| Hosted demo/prod  | Managed Postgres + container hosts (e.g. Render) + Vercel for the web app; object storage via S3-compatible R2 | Public / client demos |
+| Environment       | How                                                                                                            | Use case                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| Local development | `pnpm run dev` + Python venv                                                                                   | Feature development       |
+| Local integration | `docker compose -f infra/compose/docker-compose.yml up`                                                        | Full-stack testing, demos |
+| Hosted demo/prod  | Managed Postgres + container hosts (e.g. Render) + Vercel for the web app; object storage via S3-compatible R2 | Public / client demos     |
 
 The application is cloud-agnostic: Docker images for `api`, `ai`, and `web`
 run on any container platform. Point `DATABASE_URL` at managed Postgres and

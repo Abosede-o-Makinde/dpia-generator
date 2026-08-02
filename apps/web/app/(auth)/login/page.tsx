@@ -79,14 +79,8 @@ export default function LoginPage() {
           <Label htmlFor="password" className="text-ink">
             Password
           </Label>
-          <PasswordInput
-            id="password"
-            autoComplete="current-password"
-            {...register('password')}
-          />
-          {errors.password && (
-            <p className="text-xs text-destructive">{errors.password.message}</p>
-          )}
+          <PasswordInput id="password" autoComplete="current-password" {...register('password')} />
+          {errors.password && <p className="text-xs text-destructive">{errors.password.message}</p>}
         </div>
 
         {error && (

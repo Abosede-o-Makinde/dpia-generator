@@ -15,7 +15,9 @@ export function KpiCard({
   return (
     <div className="portal-stat transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/25">
       <div className="flex items-start justify-between gap-3">
-        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</p>
+        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          {label}
+        </p>
         <div
           className={cn(
             'flex size-9 shrink-0 items-center justify-center rounded-xl',

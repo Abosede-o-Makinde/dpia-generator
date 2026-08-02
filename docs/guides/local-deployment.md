@@ -123,15 +123,15 @@ questionnaire, submit it for review to trigger the risk engine, and try
 
 ### Service map
 
-| Service          | URL                             | Notes                                                                |
-| ---------------- | ------------------------------- | -------------------------------------------------------------------- |
-| Web              | http://localhost:3000           | The application                                                      |
-| API              | http://localhost:4000           | REST API; Swagger at `/docs` (non-production only)                   |
-| API health       | http://localhost:4000/v1/health |                                                                      |
-| AI service       | http://localhost:8000           | Internal — not meant for direct browser use                          |
-| AI health        | http://localhost:8000/health    |                                                                      |
-| MinIO console    | http://localhost:9001           | S3-compatible evidence storage; login `shieldwise` / `shieldwise_dev_password` |
-| Postgres         | localhost:5432                  | `shieldwise` / `shieldwise_dev_password`, database `shieldwise`                     |
+| Service       | URL                             | Notes                                                                          |
+| ------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| Web           | http://localhost:3000           | The application                                                                |
+| API           | http://localhost:4000           | REST API; Swagger at `/docs` (non-production only)                             |
+| API health    | http://localhost:4000/v1/health |                                                                                |
+| AI service    | http://localhost:8000           | Internal — not meant for direct browser use                                    |
+| AI health     | http://localhost:8000/health    |                                                                                |
+| MinIO console | http://localhost:9001           | S3-compatible evidence storage; login `shieldwise` / `shieldwise_dev_password` |
+| Postgres      | localhost:5432                  | `shieldwise` / `shieldwise_dev_password`, database `shieldwise`                |
 
 ### Stopping / resetting
 
@@ -185,8 +185,8 @@ reachable from the browser.
 ## Going further
 
 - [`docs/architecture/deployment.md`](../architecture/deployment.md) —
-For anything beyond local use, see the [deployment guide](../architecture/deployment.md)
-(Compose locally; hosted platforms such as Render + Vercel in production).
+  For anything beyond local use, see the [deployment guide](../architecture/deployment.md)
+  (Compose locally; hosted platforms such as Render + Vercel in production).
 - [`docs/guides/administrator-guide.md`](./administrator-guide.md) — SSO,
   roles, once you have a real organisation set up.
 - [`docs/security/threat-model.md`](../security/threat-model.md) — what

@@ -2,8 +2,8 @@
 
 Local helpers for Shieldwise.
 
-| Path | Purpose |
-|------|---------|
+| Path       | Purpose                                              |
+| ---------- | ---------------------------------------------------- |
 | `compose/` | Docker Compose stack (Postgres, MinIO, API, AI, web) |
 
 Production: managed Postgres + container host (e.g. Render) + Vercel for web +

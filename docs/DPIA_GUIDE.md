@@ -53,18 +53,18 @@ still confirm the decision.
 
 ## What a good DPIA covers
 
-| Area | Questions to answer |
-| ---- | ------------------- |
-| Purpose | Why are you processing this data? |
-| Necessity | Can you achieve the purpose with less data or a less intrusive method? |
-| People | Who is affected, including children or vulnerable groups? |
-| Data | What categories? Special category? Biometric? |
-| Flow | Where does data move — systems, vendors, countries? |
-| Risks | What could go wrong for people, and how severe is it? |
-| Controls | What safeguards reduce likelihood or impact? |
-| Residual risk | Is remaining risk acceptable? |
-| Consultation | Do you need to consult the ICO under Article 36? |
-| Review | When will you revisit this if the processing changes? |
+| Area          | Questions to answer                                                    |
+| ------------- | ---------------------------------------------------------------------- |
+| Purpose       | Why are you processing this data?                                      |
+| Necessity     | Can you achieve the purpose with less data or a less intrusive method? |
+| People        | Who is affected, including children or vulnerable groups?              |
+| Data          | What categories? Special category? Biometric?                          |
+| Flow          | Where does data move — systems, vendors, countries?                    |
+| Risks         | What could go wrong for people, and how severe is it?                  |
+| Controls      | What safeguards reduce likelihood or impact?                           |
+| Residual risk | Is remaining risk acceptable?                                          |
+| Consultation  | Do you need to consult the ICO under Article 36?                       |
+| Review        | When will you revisit this if the processing changes?                  |
 
 ## Article 36 — prior consultation
 
@@ -97,7 +97,7 @@ That example covers facial recognition for building access: special category
 biometric data, Article 9 condition, necessity/proportionality, residual
 risk after controls, and whether Article 36 consultation is flagged.
 
-## What Shieldwise does *not* replace
+## What Shieldwise does _not_ replace
 
 - Your organisation’s legal advice
 - DPO judgement and consultation duties

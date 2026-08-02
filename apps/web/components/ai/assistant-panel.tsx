@@ -81,8 +81,8 @@ export function AssistantPanel({ dpiaId }: { dpiaId?: string }) {
       <div className="flex-1 space-y-3 overflow-y-auto p-4">
         {messages.length === 0 && (
           <p className="text-sm text-muted-foreground">
-            Ask for help understanding a question, improving a draft answer, or identifying
-            possible mitigations. Check legal conclusions before relying on them.
+            Ask for help understanding a question, improving a draft answer, or identifying possible
+            mitigations. Check legal conclusions before relying on them.
           </p>
         )}
         {messages.map((m, i) => (

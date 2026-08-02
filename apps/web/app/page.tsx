@@ -106,7 +106,9 @@ export default function RootPage() {
             <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-white">
               <ShieldQuestion className="size-[18px]" strokeWidth={1.75} />
             </span>
-            <span className="font-display text-[1.05rem] font-semibold tracking-tight">Shieldwise</span>
+            <span className="font-display text-[1.05rem] font-semibold tracking-tight">
+              Shieldwise
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex lg:gap-8">
@@ -158,10 +160,7 @@ export default function RootPage() {
 
             <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {STEPS.map(({ number, title, copy, icon: Icon }) => (
-                <article
-                  key={number}
-                  className="group border-t border-slate-300 pt-5"
-                >
+                <article key={number} className="group border-t border-slate-300 pt-5">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-xs font-medium text-slate-400">{number}</span>
                     <span className="flex size-9 items-center justify-center rounded-lg bg-white text-primary ring-1 ring-border">
@@ -288,8 +287,8 @@ export default function RootPage() {
                 <p className="landing-eyebrow">Common questions</p>
                 <h2 className="landing-section-title mt-3">A clearer way to approach DPIAs.</h2>
                 <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                  Shieldwise provides structure and traceability while keeping accountable
-                  decisions with your organisation.
+                  Shieldwise provides structure and traceability while keeping accountable decisions
+                  with your organisation.
                 </p>
               </div>
               <div className="divide-y divide-border border-y border-border">
@@ -353,7 +352,9 @@ export default function RootPage() {
                 <ShieldQuestion className="size-5" strokeWidth={1.75} />
               </span>
               <span>
-                <span className="block font-display text-lg font-semibold leading-none">Shieldwise</span>
+                <span className="block font-display text-lg font-semibold leading-none">
+                  Shieldwise
+                </span>
                 <span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-slate-400">
                   Privacy engineering
                 </span>
@@ -369,30 +370,54 @@ export default function RootPage() {
             <div>
               <h3 className="text-base font-medium">Platform</h3>
               <div className="mt-6 flex flex-col items-start gap-3.5 text-sm text-muted-foreground">
-                <Link href="/dashboard" className="transition-colors hover:text-ink">Dashboard</Link>
-                <Link href="/dpias" className="transition-colors hover:text-ink">DPIA assessments</Link>
-                <Link href="/risks" className="transition-colors hover:text-ink">Risk register</Link>
-                <Link href="/controls" className="transition-colors hover:text-ink">Controls</Link>
-                <Link href="/reports" className="transition-colors hover:text-ink">Reports</Link>
+                <Link href="/dashboard" className="transition-colors hover:text-ink">
+                  Dashboard
+                </Link>
+                <Link href="/dpias" className="transition-colors hover:text-ink">
+                  DPIA assessments
+                </Link>
+                <Link href="/risks" className="transition-colors hover:text-ink">
+                  Risk register
+                </Link>
+                <Link href="/controls" className="transition-colors hover:text-ink">
+                  Controls
+                </Link>
+                <Link href="/reports" className="transition-colors hover:text-ink">
+                  Reports
+                </Link>
               </div>
             </div>
 
             <div>
               <h3 className="text-base font-medium">Explore</h3>
               <div className="mt-6 flex flex-col items-start gap-3.5 text-sm text-muted-foreground">
-                <a href="#how-it-works" className="transition-colors hover:text-ink">How it works</a>
-                <a href="#product" className="transition-colors hover:text-ink">Product</a>
-                <a href="#teams" className="transition-colors hover:text-ink">For teams</a>
-                <a href="#faq" className="transition-colors hover:text-ink">Common questions</a>
+                <a href="#how-it-works" className="transition-colors hover:text-ink">
+                  How it works
+                </a>
+                <a href="#product" className="transition-colors hover:text-ink">
+                  Product
+                </a>
+                <a href="#teams" className="transition-colors hover:text-ink">
+                  For teams
+                </a>
+                <a href="#faq" className="transition-colors hover:text-ink">
+                  Common questions
+                </a>
               </div>
             </div>
 
             <div>
               <h3 className="text-base font-medium">Account</h3>
               <div className="mt-6 flex flex-col items-start gap-3.5 text-sm text-muted-foreground">
-                <Link href="/register" className="transition-colors hover:text-ink">Create an account</Link>
-                <Link href="/login" className="transition-colors hover:text-ink">Log in</Link>
-                <Link href="/dpias/new" className="transition-colors hover:text-ink">Start a DPIA</Link>
+                <Link href="/register" className="transition-colors hover:text-ink">
+                  Create an account
+                </Link>
+                <Link href="/login" className="transition-colors hover:text-ink">
+                  Log in
+                </Link>
+                <Link href="/dpias/new" className="transition-colors hover:text-ink">
+                  Start a DPIA
+                </Link>
               </div>
             </div>
 
@@ -417,8 +442,12 @@ export default function RootPage() {
             <p>© {new Date().getFullYear()} Shieldwise. All rights reserved.</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <span>UK GDPR Article 35</span>
-              <Link href="/login" className="transition-colors hover:text-ink">Sign in</Link>
-              <Link href="/register" className="transition-colors hover:text-ink">Register</Link>
+              <Link href="/login" className="transition-colors hover:text-ink">
+                Sign in
+              </Link>
+              <Link href="/register" className="transition-colors hover:text-ink">
+                Register
+              </Link>
             </div>
           </div>
         </div>

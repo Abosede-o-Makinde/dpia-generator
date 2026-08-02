@@ -23,8 +23,7 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: 'Shieldwise — DPIA Generator',
-  description:
-    'Generate, score, and approve UK GDPR Article 35 Data Protection Impact Assessments',
+  description: 'Generate, score, and approve UK GDPR Article 35 Data Protection Impact Assessments',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

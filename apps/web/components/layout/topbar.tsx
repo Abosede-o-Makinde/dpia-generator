@@ -44,7 +44,9 @@ export function Topbar() {
             className="flex h-11 max-w-xs items-center gap-2 truncate rounded-full border border-border bg-white px-4 text-sm font-medium text-ink shadow-soft transition hover:border-primary/25"
             onClick={() => setOpen((o) => !o)}
           >
-            <span className="truncate">{activeMembership?.organisation.name ?? 'Select organisation'}</span>
+            <span className="truncate">
+              {activeMembership?.organisation.name ?? 'Select organisation'}
+            </span>
             <ChevronDown className="size-4 shrink-0 text-slate-400" />
           </button>
           {open && user && user.memberships.length > 1 && (

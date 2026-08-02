@@ -42,7 +42,13 @@ const CAPABILITIES = [
   },
 ] as const;
 
-function FeatureCard({ feature, index }: { feature: (typeof CAPABILITIES)[number]; index: number }) {
+function FeatureCard({
+  feature,
+  index,
+}: {
+  feature: (typeof CAPABILITIES)[number];
+  index: number;
+}) {
   const Icon = feature.icon;
   const reversed = index % 2 === 1;
 

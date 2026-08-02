@@ -80,13 +80,13 @@ scored, control-mapped programme — not a point-in-time document.
 
 Product UI screenshots used on the landing page:
 
-| Surface | Asset |
-| ------- | ----- |
-| Dashboard | [`apps/web/public/dashboard.png`](apps/web/public/dashboard.png) |
+| Surface       | Asset                                                                            |
+| ------------- | -------------------------------------------------------------------------------- |
+| Dashboard     | [`apps/web/public/dashboard.png`](apps/web/public/dashboard.png)                 |
 | Questionnaire | [`apps/web/public/dpia-questionaire.png`](apps/web/public/dpia-questionaire.png) |
-| Risks | [`apps/web/public/dpia-risks.png`](apps/web/public/dpia-risks.png) |
-| DPIA list | [`apps/web/public/dpia-list.png`](apps/web/public/dpia-list.png) |
-| Data flow | [`apps/web/public/dpia-dataflow.png`](apps/web/public/dpia-dataflow.png) |
+| Risks         | [`apps/web/public/dpia-risks.png`](apps/web/public/dpia-risks.png)               |
+| DPIA list     | [`apps/web/public/dpia-list.png`](apps/web/public/dpia-list.png)                 |
+| Data flow     | [`apps/web/public/dpia-dataflow.png`](apps/web/public/dpia-dataflow.png)         |
 
 ## Architecture
 
@@ -169,21 +169,21 @@ configuration, and troubleshooting) — see
 
 ## Documentation
 
-| Document                                                             | Covers                                                         |
-| -------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [DPIA Guide](docs/DPIA_GUIDE.md)                                     | When a DPIA is required, Article 36, how to run one here       |
-| [Product Requirements](docs/product-requirements.md)                 | Personas, functional/non-functional requirements, roadmap      |
-| [System Architecture](docs/architecture/system-architecture.md)      | Service boundaries, request flows, tenancy model               |
-| [Database Design](docs/architecture/database.md)                     | ER diagram, table reference, indexing, multi-tenant isolation  |
-| [Local Deployment Guide](docs/guides/local-deployment.md)            | Tested, step-by-step: Docker Compose and manual dev mode       |
+| Document                                                             | Covers                                                                   |
+| -------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [DPIA Guide](docs/DPIA_GUIDE.md)                                     | When a DPIA is required, Article 36, how to run one here                 |
+| [Product Requirements](docs/product-requirements.md)                 | Personas, functional/non-functional requirements, roadmap                |
+| [System Architecture](docs/architecture/system-architecture.md)      | Service boundaries, request flows, tenancy model                         |
+| [Database Design](docs/architecture/database.md)                     | ER diagram, table reference, indexing, multi-tenant isolation            |
+| [Local Deployment Guide](docs/guides/local-deployment.md)            | Tested, step-by-step: Docker Compose and manual dev mode                 |
 | [Deployment Guide](docs/architecture/deployment.md)                  | Docker Compose, hosted deploy (e.g. Render + Vercel), environment matrix |
-| [Threat Model](docs/security/threat-model.md)                        | STRIDE analysis, trust boundaries, mitigations                 |
-| [Privacy Model](docs/security/privacy-model.md)                      | How Shieldwise applies GDPR-by-design to its own processing         |
-| [Compliance Framework Mapping](docs/compliance/framework-mapping.md) | Control-to-framework mapping methodology and coverage          |
-| [Architecture Decision Records](docs/adr/)                           | Why key technical decisions were made                          |
-| [User Guide](docs/guides/user-guide.md)                              | Running a DPIA end-to-end as a DPO/privacy engineer            |
-| [Administrator Guide](docs/guides/administrator-guide.md)            | Org setup, SSO, roles                                      |
-| [Developer Guide](docs/guides/developer-guide.md)                    | Local setup, testing, contribution workflow                    |
+| [Threat Model](docs/security/threat-model.md)                        | STRIDE analysis, trust boundaries, mitigations                           |
+| [Privacy Model](docs/security/privacy-model.md)                      | How Shieldwise applies GDPR-by-design to its own processing              |
+| [Compliance Framework Mapping](docs/compliance/framework-mapping.md) | Control-to-framework mapping methodology and coverage                    |
+| [Architecture Decision Records](docs/adr/)                           | Why key technical decisions were made                                    |
+| [User Guide](docs/guides/user-guide.md)                              | Running a DPIA end-to-end as a DPO/privacy engineer                      |
+| [Administrator Guide](docs/guides/administrator-guide.md)            | Org setup, SSO, roles                                                    |
+| [Developer Guide](docs/guides/developer-guide.md)                    | Local setup, testing, contribution workflow                              |
 
 ## Security
 

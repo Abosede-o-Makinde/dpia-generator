@@ -124,9 +124,11 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm audit --audit-level=high
         continue-on-error: true
+      # pip-audit expects a project directory (or requirements file), not the
+      # pyproject.toml path itself — see pypa/gh-action-pip-audit README.
       - uses: pypa/gh-action-pip-audit@v1.1.0
         with:
-          inputs: apps/ai/pyproject.toml
+          inputs: apps/ai/
 
   sast:
     name: SAST (CodeQL)

@@ -38,7 +38,10 @@ export function LandingHero() {
         animate="show"
         className="mx-auto flex max-w-4xl flex-col items-center px-4 pb-10 pt-8 text-center sm:px-5 md:pb-14 md:pt-12"
       >
-        <motion.p variants={item} className="text-sm font-medium tracking-wide text-muted-foreground">
+        <motion.p
+          variants={item}
+          className="text-sm font-medium tracking-wide text-muted-foreground"
+        >
           Shieldwise
         </motion.p>
         <motion.h1 variants={item} className="landing-hero-title mt-4 max-w-[17ch] sm:max-w-none">
