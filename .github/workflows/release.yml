@@ -16,6 +16,8 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
+  # Overridden per-job to lowercase — GHCR image names are case-sensitive
+  # and must be lowercase; repository_owner may contain capitals.
   IMAGE_NAMESPACE: ${{ github.repository_owner }}
 
 jobs:
@@ -23,6 +25,7 @@ jobs:
     name: Build, scan, sign — ${{ matrix.component }}
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - component: api
@@ -36,6 +39,9 @@ jobs:
             dockerfile: apps/web/Dockerfile
     steps:
       - uses: actions/checkout@v4
+
+      - name: Lowercase GHCR namespace
+        run: echo "IMAGE_NAMESPACE=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_ENV"
 
       - uses: docker/setup-buildx-action@v3
 
@@ -75,6 +81,8 @@ jobs:
           image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE }}/shieldwise-${{ matrix.component }}@${{ steps.build.outputs.digest }}
           format: cyclonedx-json
           output-file: sbom-${{ matrix.component }}.cdx.json
+          registry-username: ${{ github.actor }}
+          registry-password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload SBOM artifact
         uses: actions/upload-artifact@v4

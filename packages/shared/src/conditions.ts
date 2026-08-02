@@ -11,10 +11,7 @@ import { z } from 'zod';
  */
 
 export type Condition =
-  | { all: Condition[] }
-  | { any: Condition[] }
-  | { not: Condition }
-  | LeafCondition;
+  { all: Condition[] } | { any: Condition[] } | { not: Condition } | LeafCondition;
 
 export interface LeafCondition {
   /** Question key or fact key, e.g. `data_categories` or `scan.publicBuckets`. */
