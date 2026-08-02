@@ -13,6 +13,7 @@ permissions:
   contents: read
   packages: write
   id-token: write # cosign keyless signing
+  security-events: write # upload Trivy SARIF to code scanning
 
 env:
   REGISTRY: ghcr.io
