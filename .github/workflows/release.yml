@@ -92,7 +92,7 @@ jobs:
           output: trivy-${{ matrix.component }}.sarif
 
       - name: Upload Trivy results to code scanning
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: trivy-${{ matrix.component }}.sarif
           category: trivy-${{ matrix.component }}
