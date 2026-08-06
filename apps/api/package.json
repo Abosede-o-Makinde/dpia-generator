@@ -20,7 +20,7 @@
   "dependencies": {
     "@shieldwise/shared": "workspace:*",
     "@aws-sdk/client-s3": "^3.712.0",
-    "@aws-sdk/s3-request-presigner": "^3.712.0",
+    "@aws-sdk/s3-request-presigner": "^3.1101.0",
     "@nestjs/common": "^10.4.15",
     "@nestjs/core": "^10.4.15",
     "@nestjs/jwt": "^10.2.0",
