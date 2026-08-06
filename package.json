@@ -24,9 +24,9 @@
     "compose:down": "docker compose -f infra/compose/docker-compose.yml down"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
-    "eslint": "^9.17.0",
-    "prettier": "^3.4.2",
-    "typescript-eslint": "^8.18.1"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "prettier": "^3.9.6",
+    "typescript-eslint": "^8.65.0"
   }
 }
